@@ -59,42 +59,19 @@ module.exports = function(grunt) {
   require('camunda-admin-ui/grunt/config/watch')(config, watchConf);
 
   // watch the SDK
-  watchConf.tasklist_sdk = {
+  watchConf.watchSdk = {
     options: {
       livereload: false
     },
     files: ['node_modules/camunda-commons-ui/node_modules/camunda-bpm-sdk-js/lib/**/*.js'],
-    tasks: ['grunt:buildSdkTasklist']
+    tasks: ['grunt:buildSdk']
   };
-  watchConf.cockpit_sdk = {
-    options: {
-      livereload: false
-    },
-    files: ['node_modules/camunda-commons-ui/node_modules/camunda-bpm-sdk-js/lib/**/*.js'],
-    tasks: ['grunt:buildSdkCockpit']
-  };
-  watchConf.tasklist_sdk = {
-    options: {
-      livereload: false
-    },
-    files: ['node_modules/camunda-commons-ui/node_modules/camunda-bpm-sdk-js/lib/**/*.js'],
-    tasks: ['grunt:buildSdkAdmin']
-  };
-
 
   var gruntConf = {
-    buildSdkTasklist: {
+    buildSdk: {
       gruntfile: 'node_modules/camunda-commons-ui/node_modules/camunda-bpm-sdk-js/Gruntfile.js',
       tasks: ['browserify:distAngular', 'browserify:distTypeUtils']
-    },
-    buildSdkCockpit: {
-      gruntfile: 'node_modules/camunda-commons-ui/node_modules/camunda-bpm-sdk-js/Gruntfile.js',
-      tasks: ['browserify:distAngular', 'browserify:distTypeUtils']
-    },
-    buildSdkAdmin: {
-      gruntfile: 'node_modules/camunda-commons-ui/node_modules/camunda-bpm-sdk-js/Gruntfile.js',
-      tasks: ['browserify:distAngular', 'browserify:distTypeUtils']
-    },
+    }
   };
 
 
@@ -132,7 +109,8 @@ module.exports = function(grunt) {
         var obj = objs[i];
         for (var key in obj) {
           if (obj.hasOwnProperty(key) && key.toLowerCase().indexOf(app) === -1 && key !== 'options' &&
-                                         key.toLowerCase().indexOf('webapp') === -1) {
+                                         key.toLowerCase().indexOf('webapp') === -1 &&
+                                         key.toLowerCase().indexOf('Sdk') === -1) {
               delete obj[key];
           }
         }
