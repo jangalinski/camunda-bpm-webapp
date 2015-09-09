@@ -15,10 +15,10 @@
     "pluginSourceDir": "src/main/resources-plugin"
   },
   "dependencies": {
-    "camunda-tasklist-ui": "git://github.com/camunda/camunda-tasklist-ui#refactor-build",
-    "camunda-admin-ui": "git://github.com/camunda/camunda-admin-ui#refactor-build",
-    "camunda-cockpit-ui": "git://github.com/camunda/camunda-cockpit-ui#refactor-build",
-    "camunda-commons-ui": "git://github.com/camunda/camunda-commons-ui#refactor-build"
+    "camunda-tasklist-ui": "git://github.com/camunda/camunda-tasklist-ui#master",
+    "camunda-admin-ui": "git://github.com/camunda/camunda-admin-ui#master",
+    "camunda-cockpit-ui": "git://github.com/camunda/camunda-cockpit-ui#master",
+    "camunda-commons-ui": "git://github.com/camunda/camunda-commons-ui#master"
   },
   "devDependencies": {
     "grunt": "0.4.5",
